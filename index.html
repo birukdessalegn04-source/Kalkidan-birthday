@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Kalkidan ❤️</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Georgia,serif;background:radial-gradient(circle at top,#4a0d20,#12050b 65%);color:#fff;min-height:100vh;overflow-x:hidden}
+.container{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:25px}
+.card{width:min(900px,100%);padding:45px 25px;text-align:center;border:1px solid #d6a84f;border-radius:28px;background:linear-gradient(145deg,rgba(30,5,12,.95),rgba(67,12,28,.88));box-shadow:0 0 50px rgba(218,168,70,.25)}
+.roses{font-size:55px;letter-spacing:10px}.small{letter-spacing:5px;text-transform:uppercase;color:#e8c77d;font-size:14px}
+h1{font-size:clamp(45px,10vw,95px);margin:10px 0;color:#f1cc75;font-style:italic}
+h2{font-size:clamp(28px,6vw,52px);margin:0 0 22px}
+.message{max-width:650px;margin:auto;font-size:20px;line-height:1.8;color:#f7e9d0}
+.btn{margin-top:30px;padding:15px 30px;border-radius:40px;border:1px solid #e5bd61;background:#c9973e;color:white;font-size:17px;cursor:pointer}
+.hidden{display:none}.reveal{margin:25px auto 0;max-width:650px;padding:25px;border-radius:20px;background:rgba(255,255,255,.06);border:1px solid rgba(230,190,100,.4);font-size:20px;line-height:1.8}
+.heart{position:fixed;animation:fall 7s linear infinite;top:-30px;font-size:22px}@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:.1}}
+.footer{margin-top:30px;color:#cdb98e;font-size:14px}
+</style>
+</head>
+<body>
+<div id="hearts"></div>
+<div class="container">
+  <main class="card">
+    <div class="roses">🌹 ✨ 🌹</div>
+    <div class="small">A Special Surprise For You</div>
+    <h1>Happy Birthday</h1>
+    <h2>Kalkidan Adisu ❤️</h2>
+    <p class="message">May your special day be filled with love, happiness, beautiful moments, and all the dreams you hold in your heart.</p>
+    <button class="btn" onclick="document.getElementById('gift').classList.toggle('hidden')">🎁 Open Your Virtual Gift</button>
+    <section id="gift" class="reveal hidden">
+      <strong>For You, Kalkidan ❤️</strong><br><br>
+      You are someone truly special. May this new year of your life bring you endless smiles, unforgettable memories, and all the love your heart can hold.<br><br>
+      <em>With love, always. 💕</em>
+    </section>
+    <div class="footer">Made especially for Kalkidan Adisu ✨</div>
+  </main>
+</div>
+<script>
+for(let i=0;i<18;i++){
+  const h=document.createElement('div'); h.className='heart'; h.textContent=['❤️','💕','✨','🌹'][i%4];
+  h.style.left=Math.random()*100+'vw'; h.style.animationDelay=Math.random()*7+'s'; h.style.animationDuration=(5+Math.random()*5)+'s';
+  document.getElementById('hearts').appendChild(h);
+}
+</script>
+</body>
+</html>
