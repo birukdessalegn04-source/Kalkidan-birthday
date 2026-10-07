@@ -9,8 +9,8 @@
 html,body{margin:0;width:100%;height:100%;overflow:hidden}
 body{font-family:Georgia,"Times New Roman",serif;background:radial-gradient(circle at 20% 10%,rgba(255,190,210,.22),transparent 30%),radial-gradient(circle at 90% 80%,rgba(212,164,65,.16),transparent 28%),linear-gradient(135deg,#210611,#4a0c20 48%,#120308);color:#fff}
 .book-wrap{height:100vh;display:flex;align-items:center;justify-content:center;padding:18px}
-.book{position:relative;width:min(980px,96vw);height:min(92vh,760px);perspective:1800px}
-.page{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,250,242,.98),rgba(250,237,218,.96));color:#35131c;border-radius:8px 20px 20px 8px;box-shadow:0 18px 55px rgba(0,0,0,.48),inset 0 0 0 2px rgba(179,128,45,.45);overflow:hidden;transform-origin:left center;transition:transform .85s cubic-bezier(.65,.05,.25,1);backface-visibility:hidden}
+.book{position:relative;width:min(900px,90vw);height:min(84vh,700px);perspective:1800px}
+.page{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,250,242,.98),rgba(250,237,218,.96));color:#35131c;border-radius:8px 20px 20px 8px;box-shadow:0 18px 55px rgba(0,0,0,.48),inset 0 0 0 2px rgba(179,128,45,.45);overflow:hidden;transform-origin:left center;transition:transform .55s cubic-bezier(.22,.61,.36,1);will-change:transform;backface-visibility:hidden}
 .page.flipped{transform:rotateY(-180deg)}
 .page-inner{height:100%;padding:35px 42px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative}
 .cover{background:radial-gradient(circle at 50% 35%,rgba(160,22,56,.55),transparent 34%),linear-gradient(145deg,#17040b,#5b1028 55%,#21050f);color:#f9e5ad}
@@ -30,12 +30,12 @@ h2{font-size:clamp(27px,5vw,50px);margin:12px 0;color:#8e243f}
 .page-number{position:absolute;bottom:16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9b7738}
 .love-title{font-size:clamp(30px,5vw,55px);color:#8e243f;font-style:italic}
 .love-copy{max-width:730px;color:#4a2029;font-size:clamp(17px,2.4vw,21px);line-height:1.8}
-.controls{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:9px;z-index:1000;align-items:center}
+.controls{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:1000;align-items:center}
 .btn{border:1px solid #d9ad55;background:rgba(31,5,14,.94);color:#f7d887;padding:10px 17px;border-radius:30px;font-size:14px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.3)}
 .play{font-size:17px;padding:14px 28px;background:linear-gradient(135deg,#d7a447,#9b5d1d);color:white}
 .counter{color:#f7dfad;font-size:12px;background:rgba(20,3,9,.7);padding:8px 12px;border-radius:20px}
 .play-note{margin-top:12px;color:#ffe9b0;font-size:14px;letter-spacing:.5px}
-.hint{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:1000;color:#f5d99c;font-size:11px;letter-spacing:1px;background:rgba(20,3,9,.55);padding:7px 12px;border-radius:20px}
+.hint{display:none}
 .confetti{position:fixed;top:-20px;pointer-events:none;z-index:2000;font-size:18px;animation:fall 6s linear forwards}
 @keyframes fall{to{transform:translateY(110vh) rotate(600deg);opacity:0}}
 @media(max-width:600px){
@@ -47,8 +47,7 @@ h2{font-size:clamp(27px,5vw,50px);margin:12px 0;color:#8e243f}
 </style>
 </head>
 <body>
-<div class="hint">Swipe left/right to turn the pages ✨</div>
-<audio id="music" preload="auto" loop="false"><source src="birthday_music_first_60_seconds.mp3" type="audio/mpeg"></audio>
+<audio id="music" preload="metadata"><source src="birthday_music_first_60_seconds.m4a" type="audio/mp4"></audio>
 
 <div class="book-wrap"><div class="book" id="book">
 
@@ -72,7 +71,7 @@ h2{font-size:clamp(27px,5vw,50px);margin:12px 0;color:#8e243f}
     <span class="flower f1">🌹</span><span class="flower f2">🌸</span>
     <span class="flower f3">🌷</span><span class="flower f4">🌹</span>
     <div class="date">October 9, 2026</div>
-    <div class="photo-frame"><img src="photo1.jpg" alt="Kalkidan memory 1"></div>
+    <div class="photo-frame"><img loading="lazy" decoding="async" src="photo1.jpg" alt="Kalkidan memory 1"></div>
     <p class="photo-message">That smile should honestly come with a warning… ❤️🌹 Too beautiful to ignore.</p>
     <div class="page-number">Memory 1</div>
   </div>
@@ -82,7 +81,7 @@ h2{font-size:clamp(27px,5vw,50px);margin:12px 0;color:#8e243f}
     <span class="flower f1">🌹</span><span class="flower f2">🌸</span>
     <span class="flower f3">🌷</span><span class="flower f4">🌹</span>
     <div class="date">October 9, 2026</div>
-    <div class="photo-frame"><img src="photo2.jpg" alt="Kalkidan memory 2"></div>
+    <div class="photo-frame"><img loading="lazy" decoding="async" src="photo2.jpg" alt="Kalkidan memory 2"></div>
     <p class="photo-message">You walked into the picture and suddenly the flowers had competition. 😏🌹</p>
     <div class="page-number">Memory 2</div>
   </div>
@@ -92,7 +91,7 @@ h2{font-size:clamp(27px,5vw,50px);margin:12px 0;color:#8e243f}
     <span class="flower f1">🌹</span><span class="flower f2">🌸</span>
     <span class="flower f3">🌷</span><span class="flower f4">🌹</span>
     <div class="date">October 9, 2026</div>
-    <div class="photo-frame"><img src="photo3.jpg" alt="Kalkidan memory 3"></div>
+    <div class="photo-frame"><img loading="lazy" decoding="async" src="photo3.jpg" alt="Kalkidan memory 3"></div>
     <p class="photo-message">Cute, confident, and a little dangerous… exactly the kind of trouble I would choose. 😉❤️</p>
     <div class="page-number">Memory 3</div>
   </div>
@@ -102,7 +101,7 @@ h2{font-size:clamp(27px,5vw,50px);margin:12px 0;color:#8e243f}
     <span class="flower f1">🌹</span><span class="flower f2">🌸</span>
     <span class="flower f3">🌷</span><span class="flower f4">🌹</span>
     <div class="date">October 9, 2026</div>
-    <div class="photo-frame"><img src="photo4.jpg" alt="Kalkidan memory 4"></div>
+    <div class="photo-frame"><img loading="lazy" decoding="async" src="photo4.jpg" alt="Kalkidan memory 4"></div>
     <p class="photo-message">Some people take photos. You somehow turn every photo into a memory. ✨💕</p>
     <div class="page-number">Memory 4</div>
   </div>
@@ -112,7 +111,7 @@ h2{font-size:clamp(27px,5vw,50px);margin:12px 0;color:#8e243f}
     <span class="flower f1">🌹</span><span class="flower f2">🌸</span>
     <span class="flower f3">🌷</span><span class="flower f4">🌹</span>
     <div class="date">October 9, 2026</div>
-    <div class="photo-frame"><img src="photo5.jpg" alt="Kalkidan memory 5"></div>
+    <div class="photo-frame"><img loading="lazy" decoding="async" src="photo5.jpg" alt="Kalkidan memory 5"></div>
     <p class="photo-message">If beauty were a crime, Kalkidan… I would happily be your accomplice. 😂❤️</p>
     <div class="page-number">Memory 5</div>
   </div>
@@ -122,7 +121,7 @@ h2{font-size:clamp(27px,5vw,50px);margin:12px 0;color:#8e243f}
     <span class="flower f1">🌹</span><span class="flower f2">🌸</span>
     <span class="flower f3">🌷</span><span class="flower f4">🌹</span>
     <div class="date">October 9, 2026</div>
-    <div class="photo-frame"><img src="photo6.jpg" alt="Kalkidan memory 6"></div>
+    <div class="photo-frame"><img loading="lazy" decoding="async" src="photo6.jpg" alt="Kalkidan memory 6"></div>
     <p class="photo-message">Still choosing you… even when you make it impossible to act normal around you. 😘🌹</p>
     <div class="page-number">Memory 6</div>
   </div>
@@ -179,16 +178,59 @@ function render(){
 }
 function nextPage(){if(current<pages.length-1){current++;render();}}
 function prevPage(){if(current>0){current--;render();}}
-let sx=0,sy=0;
+let sx=0, sy=0, dragging=false, activePage=null;
 const book=document.getElementById('book');
-book.addEventListener('touchstart',e=>{sx=e.changedTouches[0].screenX;sy=e.changedTouches[0].screenY},{passive:true});
-book.addEventListener('touchend',e=>{const dx=e.changedTouches[0].screenX-sx,dy=e.changedTouches[0].screenY-sy;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy))dx<0?nextPage():prevPage()},{passive:true});
-document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')nextPage();if(e.key==='ArrowLeft')prevPage()});
-for(let i=0;i<24;i++){
- const x=document.createElement('div');x.className='confetti';x.textContent=['🌸','🌹','💗','✨','🌷'][i%5];
- x.style.left=Math.random()*100+'vw';x.style.animationDelay=Math.random()*3+'s';x.style.animationDuration=(4+Math.random()*4)+'s';
- document.body.appendChild(x);setTimeout(()=>x.remove(),9000);
+
+function pageTransform(dx){
+  if(!activePage) return;
+  const width=book.getBoundingClientRect().width;
+  const progress=Math.max(-1,Math.min(1,dx/width));
+  if(progress<0 && current<pages.length-1){
+    activePage.style.transition='none';
+    activePage.style.transform=`rotateY(${-180*Math.abs(progress)}deg)`;
+  } else if(progress>0 && current>0){
+    const prev=pages[current-1];
+    prev.style.transition='none';
+    prev.style.transform=`rotateY(${-180 + 180*progress}deg)`;
+  }
 }
+
+function finishDrag(dx){
+  if(activePage) activePage.style.transition='';
+  const threshold=Math.max(55,book.getBoundingClientRect().width*0.18);
+  if(dx < -threshold && current<pages.length-1) nextPage();
+  else if(dx > threshold && current>0) prevPage();
+  else render();
+  activePage=null;
+}
+
+book.addEventListener('touchstart',e=>{
+  const t=e.changedTouches[0]; sx=t.clientX; sy=t.clientY;
+  dragging=true;
+  activePage = pages[current];
+},{passive:true});
+
+book.addEventListener('touchmove',e=>{
+  if(!dragging) return;
+  const t=e.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy;
+  if(Math.abs(dx)>Math.abs(dy)) {
+    e.preventDefault();
+    pageTransform(dx);
+  }
+},{passive:false});
+
+book.addEventListener('touchend',e=>{
+  if(!dragging) return;
+  dragging=false;
+  const t=e.changedTouches[0];
+  finishDrag(t.clientX-sx);
+},{passive:true});
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight') nextPage();
+  if(e.key==='ArrowLeft') prevPage();
+});
+
 render();
 </script>
 </body>
